@@ -16,7 +16,7 @@ export class SeedService {
 
   async exeuteSeed(){
 
-    this.pokemonService.removeAll();
+    await this.pokemonService.removeAll();
 
     const { data } = await this.axios.get<PokeResponse>(`https://pokeapi.co/api/v2/pokemon?limit=50`);
 
