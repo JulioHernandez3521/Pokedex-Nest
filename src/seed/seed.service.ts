@@ -15,9 +15,10 @@ export class SeedService {
 
 
   async exeuteSeed(){
-    const { data } = await this.axios.get<PokeResponse>(`https://pokeapi.co/api/v2/pokemon?limit=50`);
-    
 
+    this.pokemonService.removeAll();
+
+    const { data } = await this.axios.get<PokeResponse>(`https://pokeapi.co/api/v2/pokemon?limit=50`);
 
     const pokemonPromesas = data.results.map(({name, url}) =>{
 
